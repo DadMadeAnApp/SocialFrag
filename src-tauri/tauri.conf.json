@@ -1,0 +1,72 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "SocialFrag",
+  "version": "0.1.0",
+  "identifier": "com.dadmadeanapp.socialfrag",
+  "build": {
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:5173",
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "SocialFrag",
+        "width": 1280,
+        "height": 820,
+        "minWidth": 1024,
+        "minHeight": 700,
+        "dragDropEnabled": true
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob: asset: http://asset.localhost; media-src 'self' blob: asset: http://asset.localhost; connect-src 'self' ipc: http://ipc.localhost",
+      "assetProtocol": {
+        "enable": true,
+        "scope": []
+      },
+      "devCsp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob: asset: http://asset.localhost; media-src 'self' blob: asset: http://asset.localhost; connect-src 'self' ipc: http://ipc.localhost ws://localhost:5173 http://localhost:5173"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "nsis",
+      "app",
+      "dmg"
+    ],
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "windows": {
+      "nsis": {
+        "installMode": "currentUser"
+      }
+    },
+    "externalBin": [
+      "binaries/ffmpeg",
+      "binaries/ffprobe",
+      "binaries/whisper-cli"
+    ],
+    "resources": {
+      "../THIRD_PARTY_NOTICES.md": "THIRD_PARTY_NOTICES.md",
+      "licenses/ffmpeg-LGPL-2.1.txt": "licenses/ffmpeg-LGPL-2.1.txt",
+      "licenses/ffmpeg-LGPL-3.0.txt": "licenses/ffmpeg-LGPL-3.0.txt",
+      "licenses/OFL-Inter.txt": "licenses/OFL-Inter.txt",
+      "licenses/OFL-Anton.txt": "licenses/OFL-Anton.txt",
+      "licenses/OFL-BebasNeue.txt": "licenses/OFL-BebasNeue.txt",
+      "licenses/whisper.cpp-MIT.txt": "licenses/whisper.cpp-MIT.txt"
+    },
+    "category": "Video",
+    "copyright": "\u00a9 2026 DadMadeAnApp",
+    "macOS": {
+      "minimumSystemVersion": "11.0",
+      "hardenedRuntime": true
+    }
+  }
+}

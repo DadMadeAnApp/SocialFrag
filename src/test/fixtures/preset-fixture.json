@@ -1,0 +1,52 @@
+{
+  "id": "fixture-two-layer",
+  "name": "Fixture – two layer",
+  "game": "TEST",
+  "version": 1,
+  "builtin": false,
+  "background": {
+    "type": "blur",
+    "amount": 30
+  },
+  "layers": [
+    {
+      "id": "gameplay",
+      "label": "Gameplay",
+      "src": [
+        0.28,
+        0.0,
+        0.44,
+        1.0
+      ],
+      "dst": [
+        0,
+        420,
+        1080,
+        1080
+      ],
+      "fit": "cover"
+    },
+    {
+      "id": "killfeed",
+      "label": "Killfeed",
+      "src": [
+        0.75,
+        0.02,
+        0.23,
+        0.15
+      ],
+      "dst": [
+        60,
+        80,
+        960,
+        300
+      ],
+      "fit": "contain",
+      "radius": 16,
+      "border": {
+        "width": 4,
+        "color": "#FFFFFF"
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "builtin-wardogs-default",
+  "name": "WARDOGS – Default",
+  "game": "WARDOGS",
+  "version": 1,
+  "builtin": true,
+  "background": { "type": "blur", "amount": 30 },
+  "layers": [
+    { "id": "gameplay", "label": "Gameplay", "src": [0.3418, 0.0, 0.3164, 1.0], "dst": [0, 0, 1080, 1920], "fit": "cover" },
+    { "id": "killfeed", "label": "Killfeed", "src": [0.013, 0.4537, 0.183, 0.1481], "dst": [30, 150, 480, 255], "fit": "contain", "radius": 16 },
+    { "id": "minimap", "label": "Minimap", "src": [0.0156, 0.6898, 0.1354, 0.2731], "dst": [788, 130, 262, 300], "fit": "contain", "radius": 16, "border": { "width": 4, "color": "#FFFFFF" } },
+    { "id": "cash", "label": "Cash", "src": [0.878, 0.0167, 0.117, 0.0333], "dst": [650, 450, 400, 64], "fit": "contain", "radius": 12 },
+    { "id": "ammo", "label": "Ammo & health", "src": [0.8542, 0.838, 0.1328, 0.125], "dst": [352, 1688, 375, 202], "fit": "contain", "radius": 16 }
+  ]
+}

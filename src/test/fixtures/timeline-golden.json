@@ -1,0 +1,27 @@
+{
+  "layout": [
+    {
+      "name": "speed and freeze",
+      "clips": [
+        { "kind": "video", "inS": 2, "outS": 6, "speed": 2 },
+        { "kind": "freeze", "inS": 5, "outS": 8, "speed": 1 },
+        { "kind": "video", "inS": 0, "outS": 3, "speed": 0.5 }
+      ],
+      "starts": [0, 2, 5],
+      "durations": [2, 3, 6],
+      "total": 11
+    },
+    {
+      "name": "single full clip",
+      "clips": [{ "kind": "video", "inS": 0, "outS": 10, "speed": 1 }],
+      "starts": [0],
+      "durations": [10],
+      "total": 10
+    }
+  ],
+  "sourceAt": [
+    { "clip": 0, "t": 1, "src": 4 },
+    { "clip": 1, "t": 3.5, "src": 5 },
+    { "clip": 2, "t": 7, "src": 1 }
+  ]
+}
