@@ -11,7 +11,8 @@ test('editing shortcuts call their handlers', () => {
   const h = handlers();
   renderHook(() => useEditorKeys(h, true));
   key(' ');
-  key('s');
+  key('c');
+  key('c', { ctrlKey: true }); // Ctrl+C is copy, not cut
   key('Delete');
   key('Backspace');
   key('F');
@@ -38,7 +39,7 @@ test('keys typed into a field, or with the hook disabled, do nothing', () => {
   const { rerender } = renderHook(({ on }) => useEditorKeys(h, on), { initialProps: { on: true } });
   const input = document.createElement('input');
   document.body.appendChild(input);
-  input.dispatchEvent(new KeyboardEvent('keydown', { key: 's', bubbles: true }));
+  input.dispatchEvent(new KeyboardEvent('keydown', { key: 'c', bubbles: true }));
   expect(h.split).not.toHaveBeenCalled();
   rerender({ on: false });
   key('s');

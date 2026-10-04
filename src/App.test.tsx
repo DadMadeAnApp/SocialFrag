@@ -96,13 +96,13 @@ test('a clip the webview cannot play shows a preview percentage while its proxy 
   expect((screen.getByLabelText('Preview progress') as HTMLProgressElement).value).toBeCloseTo(0.42);
 });
 
-test('S splits the clip at the playhead, Ctrl+Z undoes it, Delete removes the selected clip', async () => {
+test('C cuts the clip at the playhead, Ctrl+Z undoes it, Delete removes the selected clip', async () => {
   const b = makeBackend();
   render(<App backend={b} />);
   await openClipIn(b);
   fireEvent.pointerDown(screen.getByLabelText('Timeline ruler'), { clientX: 250, pointerId: 1 }); // 5 s at 50 px/s
   fireEvent.pointerUp(screen.getByLabelText('Timeline ruler'), { clientX: 250, pointerId: 1 });
-  fireEvent.keyDown(window, { key: 's' });
+  fireEvent.keyDown(window, { key: 'c' });
   expect(await screen.findByRole('button', { name: 'Clip 2: clip.mp4' })).toBeTruthy();
   fireEvent.keyDown(window, { key: 'z', ctrlKey: true });
   await waitFor(() => expect(screen.queryByRole('button', { name: 'Clip 2: clip.mp4' })).toBeNull());
@@ -115,13 +115,13 @@ test('S splits the clip at the playhead, Ctrl+Z undoes it, Delete removes the se
   expect(screen.getByRole('button', { name: 'Clip 1: clip.mp4' })).toBeTruthy();
 });
 
-test('clicking Split (S) produces two clips, and Undo (Ctrl+Z) brings it back to one', async () => {
+test('clicking Cut (C) produces two clips, and Undo (Ctrl+Z) brings it back to one', async () => {
   const b = makeBackend();
   render(<App backend={b} />);
   await openClipIn(b);
   fireEvent.pointerDown(screen.getByLabelText('Timeline ruler'), { clientX: 250, pointerId: 1 }); // 5 s at 50 px/s
   fireEvent.pointerUp(screen.getByLabelText('Timeline ruler'), { clientX: 250, pointerId: 1 });
-  fireEvent.click(screen.getByRole('button', { name: 'Split (S)' }));
+  fireEvent.click(screen.getByRole('button', { name: 'Cut (C)' }));
   expect(await screen.findByRole('button', { name: 'Clip 2: clip.mp4' })).toBeTruthy();
   fireEvent.click(screen.getByRole('button', { name: 'Undo (Ctrl+Z)' }));
   await waitFor(() => expect(screen.queryByRole('button', { name: 'Clip 2: clip.mp4' })).toBeNull());
@@ -432,7 +432,7 @@ test('the caption lane shows each line; clicking one selects it for Delete', asy
   expect(screen.queryByRole('button', { name: 'Caption: three' })).toBeNull();
 });
 
-test('after a re-run replaces the selected line, S splits the clip instead of doing nothing', async () => {
+test('after a re-run replaces the selected line, C cuts the clip instead of doing nothing', async () => {
   const b = whisperBackend();
   render(<App backend={b} />);
   await openClipIn(b);
@@ -442,7 +442,7 @@ test('after a re-run replaces the selected line, S splits the clip instead of do
   await runAutoCaption(); // untouched lines are replaced with new ids
   fireEvent.pointerDown(screen.getByLabelText('Timeline ruler'), { clientX: 250, pointerId: 1 }); // 5 s
   fireEvent.pointerUp(screen.getByLabelText('Timeline ruler'), { clientX: 250, pointerId: 1 });
-  fireEvent.keyDown(window, { key: 's' });
+  fireEvent.keyDown(window, { key: 'c' });
   await waitFor(() => expect(screen.getAllByRole('button', { name: /^Clip \d:/ }).length).toBe(2));
 });
 

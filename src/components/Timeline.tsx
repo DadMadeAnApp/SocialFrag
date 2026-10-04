@@ -236,7 +236,7 @@ export function Timeline(props: Props) {
         <ToolButton icon="setIn" label="Set in (I)" onClick={tools.setIn} disabled={noClips} />
         <ToolButton icon="setOut" label="Set out (O)" onClick={tools.setOut} disabled={noClips} />
         <span className="tl-sep" aria-hidden="true" />
-        <ToolButton icon="split" label="Split (S)" onClick={tools.split} disabled={noClips} />
+        <ToolButton icon="split" label="Cut (C)" onClick={tools.split} disabled={noClips} />
         <ToolButton icon="delete" label="Delete clip (Delete)" onClick={tools.remove} disabled={!selectedId} />
         <ToolButton icon="freeze" label="Freeze frame (F)" onClick={tools.freeze} disabled={noClips} />
         <span className="tl-sep" aria-hidden="true" />
@@ -290,7 +290,7 @@ export function Timeline(props: Props) {
           <div className="tl-playhead" style={{ left: `${now * pps}px` }} />
         </div>
       </div>
-      <div className="hint">Space play · S split · Delete remove · F freeze · I/O trim to playhead · ←/→ frame · Ctrl+Z undo · drag clips to reorder, edges to trim</div>
+      <div className="hint">Space play · C cut · Delete remove · F freeze · I/O trim to playhead · ←/→ frame · Ctrl+Z undo · drag clips to reorder, edges to trim</div>
     </div>
   );
 }

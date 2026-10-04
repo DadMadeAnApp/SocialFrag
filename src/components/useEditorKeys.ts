@@ -17,7 +17,7 @@ const typing = (el: EventTarget | null) => {
   return !!e && (e.tagName === 'INPUT' || e.tagName === 'TEXTAREA' || e.tagName === 'SELECT' || e.isContentEditable);
 };
 
-/** Space play · S split · Delete/Backspace remove · F freeze · I/O trim to playhead · ←/→ frame · Ctrl/Cmd+Z undo · Shift+Ctrl/Cmd+Z or Ctrl+Y redo. */
+/** Space play · C cut · Delete/Backspace remove · F freeze · I/O trim to playhead · ←/→ frame · Ctrl/Cmd+Z undo · Shift+Ctrl/Cmd+Z or Ctrl+Y redo. */
 export function useEditorKeys(h: EditorKeyHandlers, enabled: boolean) {
   const ref = useRef(h);
   ref.current = h;
@@ -43,7 +43,7 @@ export function useEditorKeys(h: EditorKeyHandlers, enabled: boolean) {
       if (k === ' ') {
         e.preventDefault();
         x.togglePlay();
-      } else if (k === 's') x.split();
+      } else if (k === 'c') x.split();
       else if (k === 'delete' || k === 'backspace') {
         e.preventDefault();
         x.remove();

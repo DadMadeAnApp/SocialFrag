@@ -91,7 +91,7 @@ const TOOL_BUTTONS: [string, string][] = [
   ['Next frame (→)', 'step'],
   ['Set in (I)', 'setIn'],
   ['Set out (O)', 'setOut'],
-  ['Split (S)', 'split'],
+  ['Cut (C)', 'split'],
   ['Delete clip (Delete)', 'remove'],
   ['Freeze frame (F)', 'freeze'],
   ['Undo (Ctrl+Z)', 'undo'],
@@ -124,7 +124,7 @@ test('undo and redo are disabled when canUndo/canRedo are false', () => {
 
 test('clip tools are disabled with no clips', () => {
   renderTimeline([], {});
-  for (const label of ['Previous frame (←)', 'Next frame (→)', 'Set in (I)', 'Set out (O)', 'Split (S)', 'Freeze frame (F)']) {
+  for (const label of ['Previous frame (←)', 'Next frame (→)', 'Set in (I)', 'Set out (O)', 'Cut (C)', 'Freeze frame (F)']) {
     expect((screen.getByRole('button', { name: label }) as HTMLButtonElement).disabled).toBe(true);
   }
 });

@@ -17,7 +17,7 @@ SocialFrag is a free desktop clip editor for gamers. Drop in an OBS recording, p
 - **Two formats**
   - **9:16 vertical** (1080×1920, default): game-specific layout presets move HUD pieces — killfeed, minimap, cash, ammo & health — around the gameplay, over a blurred background. Toggle, drag and resize HUD pieces per clip.
   - **16:9 landscape**: the original frame as recorded, exported at 1080p or 1440p.
-- **Timeline editing**: multiple clips on one timeline, split (`S`), ripple delete, trim, reorder by dragging, speed changes (0.25×–4×), freeze frames (`F`), undo/redo.
+- **Timeline editing**: multiple clips on one timeline, cut (`C`), ripple delete, trim, reorder by dragging, speed changes (0.25×–4×), freeze frames (`F`), undo/redo.
 - **Multi-track audio**: OBS clips with several audio tracks (e.g. Desktop Audio, Game, Discord, Mic) are mixed in the app — per-track gain, peak ceiling, mutes over ranges, fades, sync offset and auto-ducking — and exported as one mixed track. Live preview while you edit.
 - **Captions**: add text captions in four styles (TikTok, Impact, Boxed, Plain), drag and resize them on the preview.
 - **Offline auto-captions (Whisper)**: caption one or more audio tracks with [whisper.cpp](https://github.com/ggml-org/whisper.cpp), locally. English models download on first use (small.en by default). Each track gets its own colour so viewers can tell speakers apart. Edit everything afterwards: fix text, drag timing on the caption lane, split, merge, delete, restyle a line or a whole track. Re-running keeps your edits.
@@ -33,7 +33,7 @@ SocialFrag is a free desktop clip editor for gamers. Drop in an OBS recording, p
 4. Add captions by hand, or click **Auto-caption**, tick the voice track(s) and **Start**.
 5. **Export** and pick where to save the MP4.
 
-Keyboard: `Space` play · `S` split · `Delete` remove · `F` freeze · `I`/`O` trim to playhead · `←`/`→` frame step · `Ctrl+Z` undo · `Ctrl+Shift+Z` / `Ctrl+Y` redo.
+Keyboard: `Space` play · `C` cut · `Delete` remove · `F` freeze · `I`/`O` trim to playhead · `←`/`→` frame step · `Ctrl+Z` undo · `Ctrl+Shift+Z` / `Ctrl+Y` redo.
 
 ## Build from source
 
